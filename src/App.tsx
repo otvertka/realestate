@@ -7,6 +7,7 @@ import ListPage from "./pages/listPage/listPage";
 import Layout from "./pages/layout/layout";
 import SinglePage from "./pages/singlePage/singlePage";
 import 'leaflet/dist/leaflet.css'
+import ProfilePage from "./pages/profilePage/profilePage";
 
 const App: React.FC = () => {
   const router = createBrowserRouter([
@@ -25,6 +26,10 @@ const App: React.FC = () => {
         {
           path: "/:id",
           element: <SinglePage />
+        },
+        {
+          path: "/profile",
+          element: <ProfilePage />
         }
       ]
     }

@@ -37,7 +37,7 @@ const Slider: React.FC<SingleItemProps> = ({ images }) => {
                     <div className="arrow" onClick={(event) => changeSlide(event, "right")}>
                         <img src="/public/arrow.png" className='right' alt="arrowImage" />
                     </div>
-                    <div className="close" onClick={(event: React.MouseEvent<HTMLDivElement>): void => {
+                    <div className="close" onClick={(event: React.MouseEvent<HTMLDivElement>) => {
                         setImageIndex(null)
                     }}>
                         X

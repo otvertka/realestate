@@ -3,10 +3,10 @@ import './map.scss'
 // import "leaflet/dist/"
 import { MapContainer, TileLayer } from 'react-leaflet'
 import Pin from '../pin/Pin'
-import { ListItemProps } from '../../types/types'
+import { ListItemProps, SingleItemProps } from '../../types/types'
 
 interface MapProps {
-    items: ListItemProps[];
+    items: (ListItemProps | SingleItemProps)[];
 }
 
 const MapComponent: React.FC<MapProps> = ({ items }) => {
@@ -18,7 +18,18 @@ const MapComponent: React.FC<MapProps> = ({ items }) => {
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
             {items.map(item => (
-                <Pin {...item} key={item.id} />
+                <Pin
+                    key={item.id}
+                    id={item.id}
+                    title={item.title}
+                    img={'img' in item ? item.img : item.images[0]}  // Handle img or images
+                    bedroom={'bedroom' in item ? item.bedroom : item.bedRooms}
+                    bathroom={item.bathroom}
+                    price={item.price}
+                    address={item.address}
+                    latitude={item.latitude}
+                    longitude={item.longitude}
+                />
             ))}
         </MapContainer>
     )
