@@ -8,7 +8,7 @@ import MapComponent from '../../components/map/MapComponent';
 
 
 
-const ListPage: React.FC = () => {
+const ListPage = () => {
     const data = listData;
 
     return (

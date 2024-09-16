@@ -1,7 +1,7 @@
 import React from 'react'
 import './filter.scss'
 
-const Filter: React.FC = () => {
+const Filter = () => {
     return (
         <div className='filter'>
             <h1>Search results for <b>London</b></h1>

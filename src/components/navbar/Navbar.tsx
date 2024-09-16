@@ -3,7 +3,7 @@ import "./navbar.scss";
 import { Link } from 'react-router-dom';
 
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
     const [open, setOpen] = useState<boolean>(false);
 
     const user = true;
