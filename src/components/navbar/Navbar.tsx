@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import "./navbar.scss";
+import { Link } from 'react-router-dom';
 
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
     const [open, setOpen] = useState<boolean>(false);
+
+    const user = true;
     return (
         <nav>
             <div className='left'>
@@ -17,9 +20,21 @@ const Navbar: React.FC = () => {
                 <a href='/'>Agents</a>
             </div>
             <div className='right'>
-                <a href='/'>Sign in</a>
-                <a href='/' className='register'>Sign up</a>
-
+                {user ? (
+                    <div className='user'>
+                        <img src="https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="userPhoto" />
+                        <span>John Doe</span>
+                        <Link to="/profile" className='profile'>
+                            <div className="notification">3</div>
+                            <span>Profile</span>
+                        </Link>
+                    </div>) : (
+                    <>
+                        <a href='/'>Sign in</a>
+                        <a href='/' className='register'>Sign up</a>
+                    </>
+                )
+                }
                 <div className='menuIcon'>
                     <img src='/public/menu.png' alt='burgerImage' onClick={() => setOpen(!open)} />
                 </div>
